@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PeopleListPageComponent } from '@app/swapi-people/containers/people-list/people-list-page.component';
-import { SharedModule } from 'primeng/api';
 
 const routes: Routes = [{ path: '', component: PeopleListPageComponent }];
 

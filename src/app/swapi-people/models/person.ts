@@ -1,4 +1,4 @@
-export interface Person {
+export interface PersonApi {
   name: string;
   height: string;
   mass: string;
@@ -15,4 +15,8 @@ export interface Person {
   created: string;
   edited: string;
   url: string;
+}
+
+export interface Person extends PersonApi {
+  uuid: string;
 }

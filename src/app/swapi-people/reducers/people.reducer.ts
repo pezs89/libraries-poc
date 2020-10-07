@@ -8,7 +8,7 @@ export const peopleFeatureKey = 'people';
 export interface State extends EntityState<Person> {}
 
 export const adapter: EntityAdapter<Person> = createEntityAdapter<Person>({
-  selectId: (person: Person) => person.name,
+  selectId: (person: Person) => person.uuid,
   sortComparer: false,
 });
 

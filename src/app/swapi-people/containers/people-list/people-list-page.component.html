@@ -1,4 +1,9 @@
-<app-people-card
-  *ngFor="let person of people$ | async"
-  [person]="person"
-></app-people-card>
+<cdk-virtual-scroll-viewport class="example-viewport" [itemSize]="30">
+  <div class="p-grid">
+    <app-people-card
+      class="p-col-12 p-md-4 p-lg-3"
+      *cdkVirtualFor="let person of people$ | async"
+      [person]="person"
+    ></app-people-card>
+  </div>
+</cdk-virtual-scroll-viewport>

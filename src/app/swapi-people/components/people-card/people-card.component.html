@@ -1,10 +1,18 @@
-<p-card
-  header="Advanced Card"
-  subheader="Card Subheader"
-  styleClass="p-card-shadow"
->
-  <ng-template pTemplate="header"> </ng-template>
-  <p>
-    {{ person | json }}
-  </p>
-</p-card>
+<div class="person-card">
+  <div class="person-card__group">
+    <div class="person-card__group-title">Name</div>
+    <div class="person-card__group-desc">{{ person.name }}</div>
+  </div>
+  <div class="person-card__group">
+    <div class="person-card__group-title">Gender</div>
+    <div class="person-card__group-desc">{{ person.gender }}</div>
+  </div>
+  <div class="person-card__group">
+    <div class="person-card__group-title">Weight</div>
+    <div class="person-card__group-desc">{{ person.mass }}</div>
+  </div>
+  <div class="person-card__group">
+    <div class="person-card__group-title">Height</div>
+    <div class="person-card__group-desc">{{ person.height }}</div>
+  </div>
+</div>

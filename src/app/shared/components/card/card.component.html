@@ -1,11 +1,12 @@
-<p-card
-  header="Advanced Card"
-  subheader="Card Subheader"
-  styleClass="p-card-shadow"
->
-  <ng-template pTemplate="header"> </ng-template>
-  <ng-container
-    [ngTemplateOutlet]="cardInnerTemplateRef"
-    [ngTemplateOutletContext]="{ $implicit: item }"
-  ></ng-container>
+<p-card styleClass="p-card-shadow">
+  <ng-template pTemplate="header">
+    <img *ngIf="isOdd" alt="Card" src="../../../../assets/images/mock-image.png" />
+    <img *ngIf="!isOdd" alt="Card" src="../../../../assets/images/mock-image-1.png" />
+  </ng-template>
+  <div class="card">
+    <ng-container
+      [ngTemplateOutlet]="cardInnerTemplateRef"
+      [ngTemplateOutletContext]="{ $implicit: item }"
+    ></ng-container>
+  </div>
 </p-card>

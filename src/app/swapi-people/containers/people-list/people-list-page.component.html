@@ -1,6 +1,6 @@
 <app-list [list]="people$ | async">
-  <ng-template #cardTemplate let-person>
-    <app-card [item]="person">
+  <ng-template #cardTemplate let-person let-odd="odd">
+    <app-card class="p-col-12 p-md-6 p-lg-4" [item]="person" [isOdd]="odd">
       <ng-template #cardInnerTemplate let-item>
         <app-people-card [person]="item"></app-people-card>
       </ng-template>

@@ -6,7 +6,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { PrimeNgModule } from '@app/primeng/primeng.module';
 import { HeaderComponent } from '@app/shared/components/header/header.component';
 import { ListComponent } from '@app/shared/components/list/list.component';
-import { CardComponent } from './components/card/card.component';
+import { CardComponent } from '@app/shared/components/card/card.component';
 
 const COMPONENTS = [HeaderComponent, ListComponent, CardComponent];
 @NgModule({

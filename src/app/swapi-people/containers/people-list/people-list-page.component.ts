@@ -10,6 +10,7 @@ import { PeopleApiActions } from '@app/swapi-people/actions';
   selector: 'app-people-list',
   templateUrl: 'people-list-page.component.html',
   styleUrls: ['./people-list-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PeopleListPageComponent implements OnInit {
   people$: Observable<Person[]>;

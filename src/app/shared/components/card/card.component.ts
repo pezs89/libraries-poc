@@ -14,6 +14,7 @@ import {
 })
 export class CardComponent<T> {
   @Input() item: T;
+  @Input() isOdd: boolean;
   @ContentChild('cardInnerTemplate', { static: false })
   cardInnerTemplateRef: TemplateRef<any>;
 }

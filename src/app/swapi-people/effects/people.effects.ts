@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 
 import { SwapiPeopleService } from '@app/core/services/swapi-people/swapi-people.service';
 import { PeopleApiActions } from '@app/swapi-people/actions';
@@ -12,11 +12,11 @@ export class PeopleEffects {
   getPeople$ = createEffect(() =>
     this.actions$.pipe(
       ofType(PeopleApiActions.getPeopleRequest),
-      mergeMap(() =>
+      switchMap(() =>
         this.peopleService.getPeople().pipe(
           map(({ results }) => {
             const transformedPeopleList = transformPeopleApiResponse(
-              multiplyList(1000000, results)
+              multiplyList(10, results)
             );
             return PeopleApiActions.getPeopleSuccess({
               people: transformedPeopleList,

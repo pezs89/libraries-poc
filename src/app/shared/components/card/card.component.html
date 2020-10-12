@@ -1,0 +1,11 @@
+<p-card
+  header="Advanced Card"
+  subheader="Card Subheader"
+  styleClass="p-card-shadow"
+>
+  <ng-template pTemplate="header"> </ng-template>
+  <ng-container
+    [ngTemplateOutlet]="cardInnerTemplateRef"
+    [ngTemplateOutletContext]="{ $implicit: item }"
+  ></ng-container>
+</p-card>

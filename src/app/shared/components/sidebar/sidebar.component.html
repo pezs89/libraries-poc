@@ -1,0 +1,8 @@
+<div class="sidebar">
+  <div class="sidebar__trigger" (click)="showSidebar()">
+    <ng-content></ng-content>
+  </div>
+  <p-sidebar [(visible)]="sidebarVisible" [position]="position">
+    <ng-content select="content"></ng-content>
+  </p-sidebar>
+</div>

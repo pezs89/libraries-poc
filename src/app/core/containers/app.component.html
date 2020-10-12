@@ -1,9 +1,16 @@
 <app-header>
   <app-sidebar navigation>
     <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+    <div content>
+      <app-logged-user-info
+        [loggedUser]="{ name: 'Zsolt Peter', profilePictureUrl: '' }"
+      ></app-logged-user-info>
+      <app-main-navigation></app-main-navigation>
+    </div>
   </app-sidebar>
   <app-sidebar settings [position]="'right'">
     <fa-icon [icon]="['fas', 'bell']"></fa-icon>
+    <div content>cica</div>
   </app-sidebar>
 </app-header>
 <main class="main">

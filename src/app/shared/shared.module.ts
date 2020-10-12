@@ -7,25 +7,27 @@ import {
   FontAwesomeModule,
   FaIconLibrary,
 } from '@fortawesome/angular-fontawesome';
-import {
-  faBars, faBell,
-} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBell } from '@fortawesome/free-solid-svg-icons';
 
 import { PrimeNgModule } from '@app/primeng/primeng.module';
-import { HeaderComponent } from '@app/shared/components/header/header.component';
 import { ListComponent } from '@app/shared/components/list/list.component';
 import { CardComponent } from '@app/shared/components/card/card.component';
 import { SidebarComponent } from '@app/shared/components/sidebar/sidebar.component';
+import { LoggedUserInfoComponent } from '@app/shared/components/logged-user-info/logged-user-info.component';
+import { LinkComponent } from './link/link.component';
+import { RouterModule } from '@angular/router';
 
 const COMPONENTS = [
-  HeaderComponent,
   ListComponent,
   CardComponent,
   SidebarComponent,
+  LoggedUserInfoComponent,
+  LinkComponent,
 ];
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ReactiveFormsModule,
     PrimeNgModule,
     ScrollingModule,

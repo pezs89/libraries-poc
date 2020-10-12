@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SidebarPositions } from '../enums/sidebar-positions';
+import { Component, Input } from '@angular/core';
+import { SidebarPositions } from '@app/shared/enums/sidebar-positions';
 
 @Component({
   selector: 'app-sidebar',

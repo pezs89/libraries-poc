@@ -10,7 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { CoreModule } from '@app/core/core.module';
-import { AppComponent } from '@app/app.component';
+import { AppComponent } from '@app/core/containers/app.component';
 import { ROOT_REDUCERS, metaReducers } from '@app/reducers';
 
 @NgModule({

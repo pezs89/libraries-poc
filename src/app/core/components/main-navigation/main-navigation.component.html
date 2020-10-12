@@ -1,3 +1,5 @@
 <nav class="nav">
-  <app-link *ngFor="let link of navLinks" [navLink]="link"></app-link>
+  <ng-container *ngFor="let link of navLinks">
+    <app-link [navLink]="link"></app-link>
+  </ng-container>
 </nav>

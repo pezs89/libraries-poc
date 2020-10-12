@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { Person, PersonApi } from '@app/swapi-people/models/person';
+import { PersonApi } from '@app/swapi-people/models/person';
 
 @Injectable({ providedIn: 'root' })
 export class SwapiPeopleService {
@@ -11,7 +11,7 @@ export class SwapiPeopleService {
 
   getPeople(): Observable<{ results: PersonApi[] }> {
     return this.http.get<{ results: PersonApi[] }>(
-      `${environment.apiUrl}/people`
+      `${environment.apiUrl}people`
     );
   }
 }

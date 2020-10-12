@@ -7,7 +7,11 @@ import {
   FontAwesomeModule,
   FaIconLibrary,
 } from '@fortawesome/angular-fontawesome';
-import { faBars, faBell } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faBell,
+  faExternalLinkAlt,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { PrimeNgModule } from '@app/primeng/primeng.module';
 import { ListComponent } from '@app/shared/components/list/list.component';
@@ -44,6 +48,6 @@ const COMPONENTS = [
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faBars, faBell);
+    library.addIcons(faBars, faBell, faExternalLinkAlt);
   }
 }

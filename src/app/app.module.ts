@@ -12,6 +12,7 @@ import { SharedModule } from '@app/shared/shared.module';
 import { CoreModule } from '@app/core/core.module';
 import { AppComponent } from '@app/core/containers/app.component';
 import { ROOT_REDUCERS, metaReducers } from '@app/reducers';
+import { RoutesEffects } from '@app/core/effects/routes.effects';
 
 @NgModule({
   imports: [
@@ -37,7 +38,7 @@ import { ROOT_REDUCERS, metaReducers } from '@app/reducers';
       stateKey: 'router',
       routerState: RouterState.Minimal,
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([RoutesEffects]),
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

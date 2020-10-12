@@ -71,3 +71,13 @@ th {
   padding: 0;
   text-align: left;
 }
+a {
+  text-decoration: none;
+  color: $font-color;
+  text-transform: capitalize;
+  font-weight: bold;
+  &:visited,
+  &:focus {
+    color: $font-color;
+  }
+}

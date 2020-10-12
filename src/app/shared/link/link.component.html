@@ -1,5 +1,5 @@
 <div class="link-container">
-  <a [routerLink]="navLink.url" routerLinkActive="router-link-active">
-    {{ navLink.name }}
+  <a class="link-container__link" [routerLink]="navLink.url" routerLinkActive="router-link-active">
+    {{ navLink.name }} <fa-icon [icon]="['fas', 'external-link-alt']"></fa-icon>
   </a>
 </div>

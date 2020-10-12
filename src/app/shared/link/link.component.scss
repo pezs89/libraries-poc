@@ -1,0 +1,24 @@
+@import "abstracts/variables";
+
+.link-container {
+  margin: 20px 0;
+  &__link {
+    display: flex;
+    align-items: center;
+    transition: all 0.25s ease-in-out;
+    padding: 0 10px 0 5px;
+    fa-icon {
+      font-size: 14px;
+      color: $font-secondary-color;
+      margin-left: auto;
+      filter: none;
+    }
+    &:hover {
+      color: $main-color;
+      fa-icon {
+        color: $main-color;
+        filter: none;
+      }
+    }
+  }
+}

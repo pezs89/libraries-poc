@@ -13,6 +13,8 @@ import {
   faBell,
   faChevronRight,
   faExternalLinkAlt,
+  faTimes,
+  faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { PrimeNgModule } from '@app/primeng/primeng.module';
@@ -51,6 +53,6 @@ const COMPONENTS = [
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faBars, faBell, faExternalLinkAlt, faChevronRight);
+    library.addIcons(faBars, faBell, faExternalLinkAlt, faTimes);
   }
 }

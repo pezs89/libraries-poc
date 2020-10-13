@@ -30,7 +30,11 @@ export class TabsComponent implements OnInit, OnDestroy {
     this.initStoreSelectors();
   }
 
-  initRouteChangeListener() {
+  onCloseTab(navTab: NavTab) {
+    this.store.dispatch(TabsActions.removeTab({ tab: navTab }));
+  }
+
+  private initRouteChangeListener() {
     this.routeChange$ = this.store
       .pipe(select(fromRoot.selectUrl))
       .subscribe((route) => {
@@ -40,7 +44,7 @@ export class TabsComponent implements OnInit, OnDestroy {
       });
   }
 
-  initStoreSelectors() {
+  private initStoreSelectors() {
     this.tabs$ = this.store.pipe(select(fromTabs.selectTabs));
     this.activeRoute$ = this.store.pipe(select(fromTabs.selectActiveRouteName));
   }

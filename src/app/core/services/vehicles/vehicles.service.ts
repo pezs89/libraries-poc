@@ -11,7 +11,7 @@ export class VehiclesService {
 
   getVehicles(): Observable<{ results: VehicleApi[] }> {
     return this.http.get<{ results: VehicleApi[] }>(
-      `${environment.apiUrl}vehicles/`
+      `${environment.apiUrl}vehicles`
     );
   }
 }

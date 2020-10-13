@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { NavTab } from '@app/shared/models/tab';
 
@@ -12,10 +18,15 @@ export class NavTabsComponent {
   @Input() navItem: NavTab;
   @Input() isLastItem: boolean;
   @Input() isActive: boolean;
+  @Output() closeTab = new EventEmitter<NavTab>();
 
   constructor(private router: Router) {}
 
   changeRoute(route: string) {
     this.router.navigateByUrl(route);
+  }
+
+  removeTab() {
+    this.closeTab.emit(this.navItem);
   }
 }

@@ -5,7 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { VehicleCardComponent } from '@app/vehicles/components/vehicle-card/vehicle-card.component';
 import { VehicleListPageComponent } from '@app/vehicles/containers/vehicle-list/vehicle-list-page.component';
-import { MoviesRoutingModule } from '@app/movies/movies-routing.module';
+import { VehiclesRoutingModule } from '@app/vehicles/vehicles-routing.module';
 import * as fromVehicles from '@app/vehicles/reducers';
 import { SharedModule } from '@app/shared/shared.module';
 import { VehicleEffects } from '@app/vehicles/effects/vehicle.effects';
@@ -16,7 +16,7 @@ const COMPONENTS = [VehicleCardComponent];
 @NgModule({
   imports: [
     CommonModule,
-    MoviesRoutingModule,
+    VehiclesRoutingModule,
     SharedModule,
     StoreModule.forFeature(
       fromVehicles.vehiclesFeatureKey,

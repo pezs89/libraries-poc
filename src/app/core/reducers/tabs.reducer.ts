@@ -21,5 +21,9 @@ export const reducer = createReducer(
     ...state,
     tabs: [...tabs],
     activeRouteName,
+  })),
+  on(TabsActions.removeTabSuccess, (state, { tabs }) => ({
+    ...state,
+    tabs: [...tabs],
   }))
 );

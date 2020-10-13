@@ -4,6 +4,7 @@
       [navItem]="tab"
       [isLastItem]="last"
       [isActive]="tab.route === (activeRoute$ | async)"
+      (closeTab)="onCloseTab($event)"
     ></app-nav-tab>
   </ng-container>
 </div>

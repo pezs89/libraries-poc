@@ -7,11 +7,13 @@ import {
 
 import * as fromRoot from '@app/reducers';
 import * as fromRoutes from '@app/core/reducers/routes.reducer';
+import * as fromTabs from '@app/core/reducers/tabs.reducer';
 
 export const coreFeatureKey = 'core';
 
 export interface CoreState {
   [fromRoutes.routesFeatureKey]: fromRoutes.State;
+  [fromTabs.tabsFeatureKey]: fromTabs.State;
 }
 
 export interface State extends fromRoot.State {
@@ -21,6 +23,7 @@ export interface State extends fromRoot.State {
 export function reducers(state: CoreState | undefined, action: Action) {
   return combineReducers({
     [fromRoutes.routesFeatureKey]: fromRoutes.reducer,
+    [fromTabs.tabsFeatureKey]: fromTabs.reducer,
   })(state, action);
 }
 
@@ -37,4 +40,19 @@ export const selectRoutesState = createSelector(
 export const selectNavLinks = createSelector(
   selectRoutesState,
   (state) => state.navLinks
+);
+
+export const selectTabsState = createSelector(
+  selectCoreState,
+  (state) => state[fromTabs.tabsFeatureKey]
+);
+
+export const selectTabs = createSelector(
+  selectTabsState,
+  (state) => state.tabs
+);
+
+export const selectActiveRouteName = createSelector(
+  selectTabsState,
+  (state) => state.activeRouteName
 );

@@ -9,6 +9,7 @@ const routes: Routes = [
       import('./swapi-people/swapi-characters.module').then(
         (m) => m.SwapiPeopleModule
       ),
+    data: { title: 'people' },
   },
   {
     path: 'planets',
@@ -16,6 +17,7 @@ const routes: Routes = [
       import('./swapi-people/swapi-characters.module').then(
         (m) => m.SwapiPeopleModule
       ),
+    data: { title: 'planets' },
   },
   {
     path: 'films',
@@ -23,6 +25,7 @@ const routes: Routes = [
       import('./swapi-people/swapi-characters.module').then(
         (m) => m.SwapiPeopleModule
       ),
+    data: { title: 'films' },
   },
   {
     path: 'species',
@@ -30,6 +33,7 @@ const routes: Routes = [
       import('./swapi-people/swapi-characters.module').then(
         (m) => m.SwapiPeopleModule
       ),
+    data: { title: 'species' },
   },
 ];
 

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -10,6 +11,7 @@ import {
 import {
   faBars,
   faBell,
+  faChevronRight,
   faExternalLinkAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,8 +20,8 @@ import { ListComponent } from '@app/shared/components/list/list.component';
 import { CardComponent } from '@app/shared/components/card/card.component';
 import { SidebarComponent } from '@app/shared/components/sidebar/sidebar.component';
 import { LoggedUserInfoComponent } from '@app/shared/components/logged-user-info/logged-user-info.component';
-import { LinkComponent } from './link/link.component';
-import { RouterModule } from '@angular/router';
+import { LinkComponent } from '@app/shared/link/link.component';
+import { NavTabsComponent } from '@app/shared/components/tabs/nav-tab.component';
 
 const COMPONENTS = [
   ListComponent,
@@ -27,6 +29,7 @@ const COMPONENTS = [
   SidebarComponent,
   LoggedUserInfoComponent,
   LinkComponent,
+  NavTabsComponent,
 ];
 @NgModule({
   imports: [
@@ -48,6 +51,6 @@ const COMPONENTS = [
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faBars, faBell, faExternalLinkAlt);
+    library.addIcons(faBars, faBell, faExternalLinkAlt, faChevronRight);
   }
 }

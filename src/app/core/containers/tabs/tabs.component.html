@@ -1,0 +1,9 @@
+<div class="tabs">
+  <ng-container *ngFor="let tab of tabs$ | async; let last = last">
+    <app-nav-tab
+      [navItem]="tab"
+      [isLastItem]="last"
+      [isActive]="tab.route === (activeRoute$ | async)"
+    ></app-nav-tab>
+  </ng-container>
+</div>

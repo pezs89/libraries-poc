@@ -10,9 +10,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { CoreModule } from '@app/core/core.module';
-import { AppComponent } from '@app/core/containers/app.component';
+import { AppComponent } from '@app/core/containers/app/app.component';
 import { ROOT_REDUCERS, metaReducers } from '@app/reducers';
 import { RoutesEffects } from '@app/core/effects/routes.effects';
+import { TabsEffects } from '@app/core/effects/tabs.effects';
 
 @NgModule({
   imports: [
@@ -38,7 +39,7 @@ import { RoutesEffects } from '@app/core/effects/routes.effects';
       stateKey: 'router',
       routerState: RouterState.Minimal,
     }),
-    EffectsModule.forRoot([RoutesEffects]),
+    EffectsModule.forRoot([RoutesEffects, TabsEffects]),
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

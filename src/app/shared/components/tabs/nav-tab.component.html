@@ -1,0 +1,12 @@
+<div class="nav-tab">
+  <div
+    class="nav-tab__label"
+    [ngClass]="{ 'nav-tab__label--active': isActive }"
+    (click)="changeRoute(navItem.route)"
+  >
+    {{ navItem.label }}
+  </div>
+  <div class="nav-tab__icon" *ngIf="!isLastItem">
+    <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>
+  </div>
+</div>

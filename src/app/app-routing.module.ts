@@ -12,7 +12,7 @@ const routes: Routes = [
     data: { title: 'people' },
   },
   {
-    path: 'planets',
+    path: 'vehicles',
     loadChildren: () =>
       import('./swapi-people/swapi-characters.module').then(
         (m) => m.SwapiPeopleModule
@@ -22,18 +22,8 @@ const routes: Routes = [
   {
     path: 'films',
     loadChildren: () =>
-      import('./swapi-people/swapi-characters.module').then(
-        (m) => m.SwapiPeopleModule
-      ),
-    data: { title: 'films' },
-  },
-  {
-    path: 'species',
-    loadChildren: () =>
-      import('./swapi-people/swapi-characters.module').then(
-        (m) => m.SwapiPeopleModule
-      ),
-    data: { title: 'species' },
+      import('./movies/movies.module').then((m) => m.MoviesModule),
+    data: { title: 'Movies' },
   },
 ];
 

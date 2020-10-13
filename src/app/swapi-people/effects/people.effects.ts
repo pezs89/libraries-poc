@@ -4,8 +4,10 @@ import { map, switchMap } from 'rxjs/operators';
 
 import { SwapiPeopleService } from '@app/core/services/swapi-people/swapi-people.service';
 import { PeopleApiActions } from '@app/swapi-people/actions';
-import { transformPeopleApiResponse } from '@app/swapi-people/utils/people-api-transform';
-import { multiplyList } from '../utils/multiply-list';
+import { uuidGenerator } from '@app/utils/uuid-generator';
+import { multiplyList } from '@app/utils/multiply-list';
+import { PersonApi } from '@app/swapi-people/models/person';
+import { Person } from '@app/swapi-people/models/person';
 
 @Injectable()
 export class PeopleEffects {
@@ -15,9 +17,10 @@ export class PeopleEffects {
       switchMap(() =>
         this.peopleService.getPeople().pipe(
           map(({ results }) => {
-            const transformedPeopleList = transformPeopleApiResponse(
-              multiplyList(10, results)
-            );
+            const multipliedListElements = multiplyList<PersonApi>(10, results);
+            const transformedPeopleList = uuidGenerator<PersonApi>(
+              multipliedListElements
+            ) as Person[];
             return PeopleApiActions.getPeopleSuccess({
               people: transformedPeopleList,
             });

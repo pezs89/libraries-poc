@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, switchMap } from 'rxjs/operators';
 
 import { RoutesApiActions } from '@app/core/actions';
-import { SwapiRoutesService } from '@app/core/services/swapi-people/swapi-routes.service';
+import { SwapiRoutesService } from '@app/core/services/swapi-routes/swapi-routes.service';
 import { routesApiResponseHelper } from '@app/core/utils/routes-api-response-helper';
 
 @Injectable()

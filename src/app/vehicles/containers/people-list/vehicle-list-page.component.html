@@ -1,0 +1,9 @@
+<app-list [list]="people$ | async">
+  <ng-template #cardTemplate let-vehicle let-odd="odd">
+    <app-card class="p-col-12 p-md-6 p-lg-4" [item]="vehicle" [isOdd]="odd">
+      <ng-template #cardInnerTemplate let-item>
+        <app-vehicle-card [vehicle]="item"></app-vehicle-card>
+      </ng-template>
+    </app-card>
+  </ng-template>
+</app-list>

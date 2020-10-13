@@ -6,4 +6,4 @@ import { NgModule } from '@angular/core';
   declarations: [],
   providers: [],
 })
-export class FilmsModule {}
+export class VehiclesModule { }

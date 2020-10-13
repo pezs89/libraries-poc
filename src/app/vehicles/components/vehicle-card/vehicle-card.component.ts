@@ -7,6 +7,6 @@ import { Vehicle } from '@app/vehicles/models/vehicles';
   styleUrls: ['./vehicle-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PeopleCardComponent {
+export class VehicleCardComponent {
   @Input() vehicle: Vehicle;
 }

@@ -1,4 +1,3 @@
-import * as VehiclesApiActions from '@app/swapi-people/actions/people-api.actions';
+import * as VehiclesApiActions from '@app/vehicles/actions/vehicles-api.actions';
 
 export { VehiclesApiActions };
-

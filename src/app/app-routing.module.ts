@@ -9,15 +9,15 @@ const routes: Routes = [
       import('./swapi-people/swapi-characters.module').then(
         (m) => m.SwapiPeopleModule
       ),
-    data: { title: 'people' },
+    data: { title: 'People' },
   },
   {
     path: 'vehicles',
     loadChildren: () =>
-      import('./swapi-people/swapi-characters.module').then(
-        (m) => m.SwapiPeopleModule
+      import('./vehicles/vehicles.module').then(
+        (m) => m.VehiclesModule
       ),
-    data: { title: 'planets' },
+    data: { title: 'Vehicles' },
   },
   {
     path: 'films',

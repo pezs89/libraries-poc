@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import * as fromSwapiPeople from '@app/swapi-people/reducers';
-import { PeopleApiActions } from '@app/swapi-people/actions';
+import * as fromVehiclesPeople from '@app/vehicles/reducers';
+import { VehiclesApiActions } from '@app/vehicles/actions';
 import { Vehicle } from '@app/vehicles/models/vehicles';
 
 @Component({
@@ -14,10 +14,10 @@ import { Vehicle } from '@app/vehicles/models/vehicles';
 export class VehicleListPageComponent implements OnInit {
   vehicles$: Observable<Vehicle[]>;
 
-  constructor(private store: Store<fromSwapiPeople.State>) {}
+  constructor(private store: Store<fromVehiclesPeople.State>) {}
 
   ngOnInit() {
-    this.store.dispatch(PeopleApiActions.getPeopleRequest());
-    this.vehicles$ = this.store.pipe(select(fromSwapiPeople.selectAll));
+    this.store.dispatch(VehiclesApiActions.getVehiclesRequest());
+    this.vehicles$ = this.store.pipe(select(fromVehiclesPeople.selectAll));
   }
 }

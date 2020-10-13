@@ -16,7 +16,12 @@ export class RoutesEffects {
           map((response) => {
             const transformedRoutesApiResponse = routesApiResponseHelper(
               response
-            ).slice(0, 4);
+            ).filter(
+              (routes) =>
+                routes.name === 'vehicles' ||
+                routes.name === 'people' ||
+                routes.name === 'films'
+            );
             return RoutesApiActions.getRoutesSuccess({
               navLinks: transformedRoutesApiResponse,
             });

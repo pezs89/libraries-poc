@@ -37,3 +37,19 @@ export const selectMoviesEntityState = createSelector(
 export const { selectAll, selectTotal } = fromMovies.adapter.getSelectors(
   selectMoviesEntityState
 );
+
+export const selectPaginationState = createSelector(
+  selectMoviesEntityState,
+  (state) => state.pagination
+);
+
+export const selectPaginatedMovies = createSelector(
+  selectAll,
+  selectPaginationState,
+  (movies, pagination) => {
+    if (!pagination) {
+      return movies;
+    }
+    return [...movies].splice(pagination.first, pagination.rows);
+  }
+);

@@ -11,11 +11,9 @@ import {
 import {
   faBars,
   faBell,
-  faChevronRight,
   faEnvelope,
   faExternalLinkAlt,
   faTimes,
-  faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { PrimeNgModule } from '@app/primeng/primeng.module';
@@ -23,9 +21,9 @@ import { ListComponent } from '@app/shared/components/list/list.component';
 import { CardComponent } from '@app/shared/components/card/card.component';
 import { SidebarComponent } from '@app/shared/components/sidebar/sidebar.component';
 import { LoggedUserInfoComponent } from '@app/shared/components/logged-user-info/logged-user-info.component';
-import { LinkComponent } from '@app/shared/link/link.component';
+import { LinkComponent } from '@app/shared/components/link/link.component';
 import { NavTabsComponent } from '@app/shared/components/tabs/nav-tab.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { CounterComponent } from '@app/shared/components/counter/counter.component';
 
 const COMPONENTS = [
   ListComponent,

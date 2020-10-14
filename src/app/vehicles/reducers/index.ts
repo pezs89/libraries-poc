@@ -37,3 +37,19 @@ export const selectVehiclesEntityState = createSelector(
 export const { selectAll, selectTotal } = fromVehicles.adapter.getSelectors(
   selectVehiclesEntityState
 );
+
+export const selectPaginatonState = createSelector(
+  selectVehiclesEntityState,
+  (state) => state.pagination
+);
+
+export const selectPaginatedVehicles = createSelector(
+  selectAll,
+  selectPaginatonState,
+  (vehicles, pagination) => {
+    if (!pagination) {
+      return vehicles;
+    }
+    return [...vehicles].splice(pagination.first, pagination.rows);
+  }
+);

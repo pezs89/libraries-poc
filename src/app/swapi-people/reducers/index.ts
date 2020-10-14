@@ -38,3 +38,19 @@ export const selectPeopleEntityState = createSelector(
 export const { selectAll, selectTotal } = fromPeople.adapter.getSelectors(
   selectPeopleEntityState
 );
+
+export const selectPaginationState = createSelector(
+  selectPeopleEntityState,
+  (state) => state.pagination
+);
+
+export const selectPaginatedList = createSelector(
+  selectAll,
+  selectPaginationState,
+  (people, pagination) => {
+    if (!pagination) {
+      return people;
+    }
+    return [...people].splice(pagination.first, pagination.rows);
+  }
+);

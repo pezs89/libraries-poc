@@ -1,4 +1,8 @@
-<app-list [list]="movies$ | async">
+<app-list
+  [list]="movies$ | async"
+  [listLength]="moviesLength$ | async"
+  (paginationChange)="onPaginationChange($event)"
+>
   <ng-template #cardTemplate let-movie let-odd="odd">
     <app-card class="p-col-12 p-md-6 p-lg-4" [item]="movie" [isOdd]="odd">
       <ng-template #cardInnerTemplate let-item>

@@ -8,12 +8,16 @@ import {
 import * as fromRoot from '@app/reducers';
 import * as fromRoutes from '@app/core/reducers/routes.reducer';
 import * as fromTabs from '@app/core/reducers/tabs.reducer';
+import * as fromEmails from '@app/core/reducers/emails.reducer';
+import * as fromNotifications from '@app/core/reducers/notifications.reducer';
 
 export const coreFeatureKey = 'core';
 
 export interface CoreState {
   [fromRoutes.routesFeatureKey]: fromRoutes.State;
   [fromTabs.tabsFeatureKey]: fromTabs.State;
+  [fromNotifications.notificationsFeatureKey]: fromNotifications.State;
+  [fromEmails.emailsFeatureKey]: fromEmails.State;
 }
 
 export interface State extends fromRoot.State {
@@ -24,6 +28,8 @@ export function reducers(state: CoreState | undefined, action: Action) {
   return combineReducers({
     [fromRoutes.routesFeatureKey]: fromRoutes.reducer,
     [fromTabs.tabsFeatureKey]: fromTabs.reducer,
+    [fromNotifications.notificationsFeatureKey]: fromNotifications.reducer,
+    [fromEmails.emailsFeatureKey]: fromEmails.reducer,
   })(state, action);
 }
 
@@ -55,4 +61,34 @@ export const selectTabs = createSelector(
 export const selectActiveRouteName = createSelector(
   selectTabsState,
   (state) => state.activeRouteName
+);
+
+export const selectEmailsState = createSelector(
+  selectCoreState,
+  (state) => state[fromEmails.emailsFeatureKey]
+);
+
+export const selectEmails = createSelector(
+  selectEmailsState,
+  (state) => state.emails
+);
+
+export const selectEmailsCount = createSelector(
+  selectEmails,
+  (state) => state.length
+);
+
+export const selectNotificationsState = createSelector(
+  selectCoreState,
+  (state) => state[fromNotifications.notificationsFeatureKey]
+);
+
+export const selectNotifications = createSelector(
+  selectNotificationsState,
+  (state) => state.notifications
+);
+
+export const selectNotificationsCount = createSelector(
+  selectNotifications,
+  (state) => state.length
 );

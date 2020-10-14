@@ -8,6 +8,8 @@
   background-color: $main-color-with-opacity;
   border-radius: 20px;
   opacity: 0.5;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  transition: all 0.1s ease-in-out;
   &--active {
     font-weight: 600;
     background-color: $main-color;

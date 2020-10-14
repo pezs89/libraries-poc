@@ -1,0 +1,39 @@
+@import "abstracts/variables";
+
+.notification {
+  height: 60px;
+  padding: 10px 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: #f6f9f9;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  &__priority {
+    height: 12px;
+    margin: 0 5px;
+    flex-basis: calc(50% - 20px);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    &--high {
+      background-color: $error-color;
+    }
+    &--medium {
+      background-color: $warning-color;
+    }
+    &--low {
+      background-color: $success-color;
+    }
+  }
+  &__desc {
+    font-size: 14px;
+    padding: 3px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}

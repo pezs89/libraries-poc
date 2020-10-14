@@ -12,6 +12,7 @@ import {
   faBars,
   faBell,
   faChevronRight,
+  faEnvelope,
   faExternalLinkAlt,
   faTimes,
   faTimesCircle,
@@ -24,6 +25,7 @@ import { SidebarComponent } from '@app/shared/components/sidebar/sidebar.compone
 import { LoggedUserInfoComponent } from '@app/shared/components/logged-user-info/logged-user-info.component';
 import { LinkComponent } from '@app/shared/link/link.component';
 import { NavTabsComponent } from '@app/shared/components/tabs/nav-tab.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 const COMPONENTS = [
   ListComponent,
@@ -32,6 +34,7 @@ const COMPONENTS = [
   LoggedUserInfoComponent,
   LinkComponent,
   NavTabsComponent,
+  CounterComponent,
 ];
 @NgModule({
   imports: [
@@ -53,6 +56,6 @@ const COMPONENTS = [
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faBars, faBell, faExternalLinkAlt, faTimes);
+    library.addIcons(faBars, faBell, faExternalLinkAlt, faTimes, faEnvelope);
   }
 }

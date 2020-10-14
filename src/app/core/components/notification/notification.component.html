@@ -1,0 +1,13 @@
+<div class="notification">
+  <div
+    class="notification__priority"
+    [ngClass]="{
+      'notification__priority--high': notification.priority === 'high',
+      'notification__priority--medium': notification.priority === 'medium',
+      'notification__priority--low': notification.priority === 'low'
+    }"
+  ></div>
+  <div class="notification__desc">
+    {{ notification.description }}
+  </div>
+</div>

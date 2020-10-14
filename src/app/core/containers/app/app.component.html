@@ -13,8 +13,26 @@
     </div>
   </app-sidebar>
   <app-sidebar settings [position]="'right'">
+    <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+    <app-counter [count]="emailsCount$ | async"></app-counter>
+    <div content>
+      <h4 class="sidebar sidebar__title">Emails</h4>
+      <app-email
+        *ngFor="let email of emails$ | async"
+        [email]="email"
+      ></app-email>
+    </div>
+  </app-sidebar>
+  <app-sidebar settings [position]="'right'">
     <fa-icon [icon]="['fas', 'bell']"></fa-icon>
-    <div content>Notifications</div>
+    <app-counter [count]="notificationsCount$ | async"></app-counter>
+    <div content>
+      <h4 class="sidebar sidebar__title">Notifications</h4>
+      <app-notification
+        *ngFor="let notification of notifications$ | async"
+        [notification]="notification"
+      ></app-notification>
+    </div>
   </app-sidebar>
 </app-header>
 <main class="main">

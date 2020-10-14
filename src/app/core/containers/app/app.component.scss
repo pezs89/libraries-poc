@@ -1,3 +1,16 @@
+@import 'abstracts/variables';
+
+
 .main {
   margin: 40px 60px;
+}
+
+.sidebar {
+  &__title {
+    position: relative;
+    font-size: 22px;
+    padding: 5px 0 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    color: $main-color;
+  }
 }

@@ -1,12 +1,20 @@
 @import "abstracts/variables";
 
 .link-container {
-  margin: 20px 0;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #f6f9f9;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
   &__link {
     display: flex;
     align-items: center;
     transition: all 0.25s ease-in-out;
-    padding: 0 10px 0 5px;
+    padding: 20px 10px 20px 5px;
+    font-weight: 200;
     fa-icon {
       font-size: 14px;
       color: $font-secondary-color;

@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { NavTab } from '@app/shared/models/tab';
+import { TabNavigationKeys } from '@app/core/enums/tab-navigation-values';
 
 export const routeChanged = createAction(
   '[Tabs Container] Route Changed',
@@ -16,7 +17,12 @@ export const removeTab = createAction(
   props<{ tab: NavTab }>()
 );
 
+export const changeRoute = createAction(
+  '[Tabs Container] Tabs Container Change Route',
+  props<{ direction: TabNavigationKeys }>()
+);
+
 export const removeTabSuccess = createAction(
   '[Tabs Effects] Remove Tab Success',
-  props<{ tabs: NavTab[], activeRoute: string }>()
+  props<{ tabs: NavTab[]; activeRoute: string }>()
 );

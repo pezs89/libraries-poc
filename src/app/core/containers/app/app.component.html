@@ -1,5 +1,13 @@
 <app-header>
-  <app-sidebar navigation>
+  <app-sidebar
+    navigation
+    [sidebarIdentifier]="'navigation'"
+    [forceOpen]="(activeSidebarName$ | async) === 'navigation'"
+    appKeydownWatcher
+    [keys]="[appKeyCombinations.navigation]"
+    (keyDown)="onKeydown($event)"
+    (sidebarHidden)="onSidebarHidden()"
+  >
     <fa-icon [icon]="['fas', 'bars']"></fa-icon>
     <div content>
       <app-logged-user-info
@@ -12,7 +20,16 @@
       <app-main-navigation [navLinks]="routes$ | async"></app-main-navigation>
     </div>
   </app-sidebar>
-  <app-sidebar settings [position]="'right'">
+  <app-sidebar
+    settings
+    [sidebarIdentifier]="'mail'"
+    [position]="'right'"
+    [forceOpen]="(activeSidebarName$ | async) === 'mail'"
+    appKeydownWatcher
+    [keys]="[appKeyCombinations.mail]"
+    (keyDown)="onKeydown($event)"
+    (sidebarHidden)="onSidebarHidden()"
+  >
     <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
     <app-counter [count]="emailsCount$ | async"></app-counter>
     <div content>
@@ -23,7 +40,16 @@
       ></app-email>
     </div>
   </app-sidebar>
-  <app-sidebar settings [position]="'right'">
+  <app-sidebar
+    settings
+    [sidebarIdentifier]="'notifications'"
+    [position]="'right'"
+    [forceOpen]="(activeSidebarName$ | async) === 'notifications'"
+    appKeydownWatcher
+    [keys]="[appKeyCombinations.notifications]"
+    (keyDown)="onKeydown($event)"
+    (sidebarHidden)="onSidebarHidden()"
+  >
     <fa-icon [icon]="['fas', 'bell']"></fa-icon>
     <app-counter [count]="notificationsCount$ | async"></app-counter>
     <div content>

@@ -1,10 +1,19 @@
-<div class="tabs">
+<div
+  class="tabs"
+  appKeydownWatcher
+  [keys]="[
+    tabsKeyCombinations.navigateBack,
+    tabsKeyCombinations.navigateForward
+  ]"
+  (keyDown)="onNavChangeKeydown($event)"
+>
   <ng-container *ngFor="let tab of tabs$ | async; let last = last">
     <app-nav-tab
       [navItem]="tab"
       [isLastItem]="last"
       [isActive]="tab.route === (activeRoute$ | async)"
       (closeTab)="onCloseTab($event)"
+      (changeRoute)="onChangeRoute($event)"
     ></app-nav-tab>
   </ng-container>
 </div>

@@ -8,6 +8,8 @@ import * as fromTabs from '@app/core/reducers';
 import { TabsActions } from '@app/core/actions';
 import { newTabHandler } from '@app/core/utils/new-tab-handler';
 import { removeTabHandler } from '@app/core/utils/remove-tab-handler';
+import { TabNavigationKeys } from '../enums/tab-navigation-values';
+import { findNextRoute } from '../utils/find-next-route';
 
 @Injectable()
 export class TabsEffects {
@@ -47,8 +49,25 @@ export class TabsEffects {
       this.actions$.pipe(
         ofType(TabsActions.removeTabSuccess),
         map((action) => {
-          console.log(action);
           this.router.navigateByUrl(action.activeRoute);
+        })
+      ),
+    { dispatch: false }
+  );
+
+  changeRoute$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(TabsActions.changeRoute),
+        withLatestFrom(
+          this.store.pipe(select(fromTabs.selectTabs)),
+          this.store.pipe(select(fromTabs.selectActiveRouteName))
+        ),
+        map(([{ direction }, tabs, routeName]) => {
+          if (tabs.length > 1) {
+            const routeToNavigate = findNextRoute(direction, tabs, routeName);
+            this.router.navigateByUrl(routeToNavigate);
+          }
         })
       ),
     { dispatch: false }

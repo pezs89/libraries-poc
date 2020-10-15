@@ -5,7 +5,6 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { NavTab } from '@app/shared/models/tab';
 
 @Component({
@@ -19,11 +18,10 @@ export class NavTabsComponent {
   @Input() isLastItem: boolean;
   @Input() isActive: boolean;
   @Output() closeTab = new EventEmitter<NavTab>();
+  @Output() changeRoute = new EventEmitter<string>();
 
-  constructor(private router: Router) {}
-
-  changeRoute(route: string) {
-    this.router.navigateByUrl(route);
+  navigateTo(route: string) {
+    this.changeRoute.emit(route);
   }
 
   removeTab() {

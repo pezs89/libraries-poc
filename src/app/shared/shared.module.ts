@@ -24,6 +24,7 @@ import { LoggedUserInfoComponent } from '@app/shared/components/logged-user-info
 import { LinkComponent } from '@app/shared/components/link/link.component';
 import { NavTabsComponent } from '@app/shared/components/tabs/nav-tab.component';
 import { CounterComponent } from '@app/shared/components/counter/counter.component';
+import { KeydownWatcherDirective } from './directives/keypress-watcher/keydown-watcher.directive';
 
 const COMPONENTS = [
   ListComponent,
@@ -34,6 +35,9 @@ const COMPONENTS = [
   NavTabsComponent,
   CounterComponent,
 ];
+
+const DIRECTIVES = [KeydownWatcherDirective];
+
 @NgModule({
   imports: [
     CommonModule,
@@ -49,8 +53,9 @@ const COMPONENTS = [
     ScrollingModule,
     FontAwesomeModule,
     COMPONENTS,
+    DIRECTIVES,
   ],
-  declarations: [COMPONENTS],
+  declarations: [COMPONENTS, DIRECTIVES],
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {

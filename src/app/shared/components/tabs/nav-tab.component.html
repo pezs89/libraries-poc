@@ -1,5 +1,5 @@
 <div class="nav-tab" [ngClass]="{ 'nav-tab--active': isActive }">
-  <div class="nav-tab__label" (click)="changeRoute(navItem.route)">
+  <div class="nav-tab__label" (click)="navigateTo(navItem.route)">
     {{ navItem.label }}
   </div>
   <div class="nav-tab__icon" (click)="removeTab()">

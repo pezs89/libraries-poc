@@ -10,6 +10,7 @@ import * as fromRoutes from '@app/core/reducers/routes.reducer';
 import * as fromTabs from '@app/core/reducers/tabs.reducer';
 import * as fromEmails from '@app/core/reducers/emails.reducer';
 import * as fromNotifications from '@app/core/reducers/notifications.reducer';
+import * as fromLayout from '@app/core/reducers/layout.reducer';
 
 export const coreFeatureKey = 'core';
 
@@ -18,6 +19,7 @@ export interface CoreState {
   [fromTabs.tabsFeatureKey]: fromTabs.State;
   [fromNotifications.notificationsFeatureKey]: fromNotifications.State;
   [fromEmails.emailsFeatureKey]: fromEmails.State;
+  [fromLayout.layoutFeatureKey]: fromLayout.State;
 }
 
 export interface State extends fromRoot.State {
@@ -30,6 +32,7 @@ export function reducers(state: CoreState | undefined, action: Action) {
     [fromTabs.tabsFeatureKey]: fromTabs.reducer,
     [fromNotifications.notificationsFeatureKey]: fromNotifications.reducer,
     [fromEmails.emailsFeatureKey]: fromEmails.reducer,
+    [fromLayout.layoutFeatureKey]: fromLayout.reducer,
   })(state, action);
 }
 
@@ -91,4 +94,14 @@ export const selectNotifications = createSelector(
 export const selectNotificationsCount = createSelector(
   selectNotifications,
   (state) => state.length
+);
+
+export const selectLayoutState = createSelector(
+  selectCoreState,
+  (state) => state[fromLayout.layoutFeatureKey]
+);
+
+export const selectSidebarName = createSelector(
+  selectLayoutState,
+  (state) => state.activeSidebarName
 );

@@ -2,7 +2,12 @@
   <div class="sidebar__trigger" (click)="showSidebar()">
     <ng-content></ng-content>
   </div>
-  <p-sidebar [(visible)]="sidebarVisible" [position]="position">
+  <p-sidebar
+    [(visible)]="sidebarVisible"
+    [position]="position"
+    (onHide)="sidebarHidden.emit()"
+    (onShow)="sidebarOpen.emit(sidebarIdentifier)"
+  >
     <ng-content select="[content]"></ng-content>
   </p-sidebar>
 </div>

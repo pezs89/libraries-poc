@@ -5,17 +5,26 @@ export const layoutFeatureKey = 'layout';
 
 export interface State {
   activeSidebarName: string;
+  openedByKeyboard: boolean;
 }
 
 export const initialState: State = {
   activeSidebarName: null,
+  openedByKeyboard: null,
 };
 
 export const reducer = createReducer(
   initialState,
-  on(LayoutActions.toggleSidebar, (state, { sidebarName }) => ({
-    ...state,
-    activeSidebarName:
-      state.activeSidebarName === sidebarName ? null : sidebarName,
-  }))
+  on(
+    LayoutActions.toggleSidebar,
+    (state, { sidebarName, openedByKeyboard }) => ({
+      ...state,
+      openedByKeyboard:
+        openedByKeyboard === undefined ? openedByKeyboard : null,
+      activeSidebarName:
+        state.activeSidebarName === sidebarName && openedByKeyboard
+          ? null
+          : sidebarName,
+    })
+  )
 );

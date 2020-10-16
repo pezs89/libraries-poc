@@ -1,4 +1,7 @@
 .sidebar {
+  .p-sidebar {
+    overflow: auto;
+  }
   &__trigger {
     position: relative;
     padding: 0 10px;

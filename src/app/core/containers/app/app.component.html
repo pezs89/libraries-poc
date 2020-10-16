@@ -1,12 +1,17 @@
-<app-header>
+<app-header
+  appOverflowRemover
+  [hasOpenedSidebar]="(activeSidebarName$ | async) !== null"
+>
   <app-sidebar
     navigation
     [sidebarIdentifier]="'navigation'"
     [forceOpen]="(activeSidebarName$ | async) === 'navigation'"
     appKeydownWatcher
     [keys]="[appKeyCombinations.navigation]"
+    [shouldForceOpen]="openedByKeyboard$ | async"
     (keyDown)="onKeydown($event)"
     (sidebarHidden)="onSidebarHidden()"
+    (sidebarOpen)="onSidebarOpen($event)"
   >
     <fa-icon [icon]="['fas', 'bars']"></fa-icon>
     <div content>
@@ -27,8 +32,10 @@
     [forceOpen]="(activeSidebarName$ | async) === 'mail'"
     appKeydownWatcher
     [keys]="[appKeyCombinations.mail]"
+    [shouldForceOpen]="openedByKeyboard$ | async"
     (keyDown)="onKeydown($event)"
     (sidebarHidden)="onSidebarHidden()"
+    (sidebarOpen)="onSidebarOpen($event)"
   >
     <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
     <app-counter [count]="emailsCount$ | async"></app-counter>
@@ -47,8 +54,10 @@
     [forceOpen]="(activeSidebarName$ | async) === 'notifications'"
     appKeydownWatcher
     [keys]="[appKeyCombinations.notifications]"
+    [shouldForceOpen]="openedByKeyboard$ | async"
     (keyDown)="onKeydown($event)"
     (sidebarHidden)="onSidebarHidden()"
+    (sidebarOpen)="onSidebarOpen($event)"
   >
     <fa-icon [icon]="['fas', 'bell']"></fa-icon>
     <app-counter [count]="notificationsCount$ | async"></app-counter>

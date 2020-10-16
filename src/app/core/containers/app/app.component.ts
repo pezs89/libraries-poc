@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   readonly appKeyCombinations = {
     navigation: 'keys',
     notifications: 'keyn',
-    mail: 'keym'
+    mail: 'keym',
   };
 
   routes$: Observable<NavLink[]>;
@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   emails$: Observable<Email[]>;
   emailsCount$: Observable<number>;
   activeSidebarName$: Observable<string>;
+  openedByKeyboard$: Observable<boolean>;
 
   constructor(private store: Store<fromRoot.State>) {}
 
@@ -47,6 +48,9 @@ export class AppComponent implements OnInit {
     this.activeSidebarName$ = this.store.pipe(
       select(fromCore.selectSidebarName)
     );
+    this.openedByKeyboard$ = this.store.pipe(
+      select(fromCore.selectOpenedByKeyboard)
+    );
   }
 
   onKeydown(keyCode: string) {
@@ -54,15 +58,25 @@ export class AppComponent implements OnInit {
       (sidebar) => this.appKeyCombinations[sidebar] === keyCode
     );
     this.store.dispatch(
-      LayoutActions.toggleSidebar({ sidebarName: sidebarKey })
+      LayoutActions.toggleSidebar({
+        sidebarName: sidebarKey,
+        openedByKeyboard: true,
+      })
     );
   }
 
   onSidebarHidden() {
-    this.store.dispatch(LayoutActions.toggleSidebar({ sidebarName: null }));
+    this.store.dispatch(
+      LayoutActions.toggleSidebar({
+        sidebarName: null,
+        openedByKeyboard: false,
+      })
+    );
   }
 
-  onSidebarOpen(sidebarName: string) {
-    this.store.dispatch(LayoutActions.toggleSidebar({ sidebarName }));
+  onSidebarOpen(sidebarKey: string) {
+    this.store.dispatch(
+      LayoutActions.toggleSidebar({ sidebarName: sidebarKey })
+    );
   }
 }

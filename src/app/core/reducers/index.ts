@@ -105,3 +105,8 @@ export const selectSidebarName = createSelector(
   selectLayoutState,
   (state) => state.activeSidebarName
 );
+
+export const selectOpenedByKeyboard = createSelector(
+  selectLayoutState,
+  (state) => state.openedByKeyboard
+);

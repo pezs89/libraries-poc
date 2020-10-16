@@ -24,7 +24,8 @@ import { LoggedUserInfoComponent } from '@app/shared/components/logged-user-info
 import { LinkComponent } from '@app/shared/components/link/link.component';
 import { NavTabsComponent } from '@app/shared/components/tabs/nav-tab.component';
 import { CounterComponent } from '@app/shared/components/counter/counter.component';
-import { KeydownWatcherDirective } from './directives/keypress-watcher/keydown-watcher.directive';
+import { KeydownWatcherDirective } from '@app/shared/directives/keydown-watcher/keydown-watcher.directive';
+import { OverflowRemoverDirective } from '@app/shared/directives/overflow-remover/overflow-remover.directive';
 
 const COMPONENTS = [
   ListComponent,
@@ -36,7 +37,7 @@ const COMPONENTS = [
   CounterComponent,
 ];
 
-const DIRECTIVES = [KeydownWatcherDirective];
+const DIRECTIVES = [KeydownWatcherDirective, OverflowRemoverDirective];
 
 @NgModule({
   imports: [

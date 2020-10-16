@@ -20,7 +20,31 @@ export class AppComponent implements OnInit {
     navigation: 'keys',
     notifications: 'keyn',
     mail: 'keym',
+    help: 'keyh',
   };
+
+  readonly helps = [
+    {
+      title: 'alt + s',
+      desc: 'Opens navigation sidebar',
+    },
+    {
+      title: 'alt + a',
+      desc: 'Navigate between tabs backward',
+    },
+    {
+      title: 'alt + d',
+      desc: 'Navigate between tabs forward',
+    },
+    {
+      title: 'alt + n',
+      desc: 'Opens notifications sidebar',
+    },
+    {
+      title: 'alt + m',
+      desc: 'Opens mail sidebar',
+    },
+  ];
 
   routes$: Observable<NavLink[]>;
   notifications$: Observable<Notification[]>;

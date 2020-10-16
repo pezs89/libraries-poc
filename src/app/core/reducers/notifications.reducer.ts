@@ -41,6 +41,7 @@ export const initialState: State = {
     },
     {
       priority: NotificationPriorities.LOW,
+      description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu turpis condimentum, fermentum risus at, placerat est. Quisque volutpat varius lacus, et pellentesque lacus fermentum vitae. Integer aliquam libero nec justo hendrerit, in fermentum lectus venenatis. Curabitur luctus, justo ut iaculis ullamcorper, quam tellus malesuada ipsum, eu congue libero risus vel mauris.',
     },
     {

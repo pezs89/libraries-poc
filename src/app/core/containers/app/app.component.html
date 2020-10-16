@@ -27,6 +27,24 @@
   </app-sidebar>
   <app-sidebar
     settings
+    [sidebarIdentifier]="'help'"
+    [position]="'right'"
+    [forceOpen]="(activeSidebarName$ | async) === 'help'"
+    appKeydownWatcher
+    [keys]="[appKeyCombinations.help]"
+    [shouldForceOpen]="openedByKeyboard$ | async"
+    (keyDown)="onKeydown($event)"
+    (sidebarHidden)="onSidebarHidden()"
+    (sidebarOpen)="onSidebarOpen($event)"
+  >
+    <fa-icon [icon]="['fas', 'question-circle']"></fa-icon>
+    <div content>
+      <h4 class="sidebar sidebar__title">Help</h4>
+      <app-help [helps]="helps"></app-help>
+    </div>
+  </app-sidebar>
+  <app-sidebar
+    settings
     [sidebarIdentifier]="'mail'"
     [position]="'right'"
     [forceOpen]="(activeSidebarName$ | async) === 'mail'"

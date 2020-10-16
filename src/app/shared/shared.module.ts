@@ -13,6 +13,7 @@ import {
   faBell,
   faEnvelope,
   faExternalLinkAlt,
+  faQuestionCircle,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -60,6 +61,6 @@ const DIRECTIVES = [KeydownWatcherDirective, OverflowRemoverDirective];
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faBars, faBell, faExternalLinkAlt, faTimes, faEnvelope);
+    library.addIcons(faBars, faBell, faExternalLinkAlt, faTimes, faEnvelope, faQuestionCircle);
   }
 }

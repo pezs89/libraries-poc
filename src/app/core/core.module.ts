@@ -7,6 +7,7 @@ import { HeaderComponent } from '@app/core/components/header/header.component';
 import { TabsComponent } from '@app/core/containers/tabs/tabs.component';
 import { NotificationComponent } from '@app/core/components/notification/notification.component';
 import { EmailComponent } from '@app/core/components/email/email.component';
+import { HelpComponent } from '@app/core/components/help/help.component';
 
 const CONTAINERS = [TabsComponent];
 const COMPONENTS = [
@@ -14,6 +15,7 @@ const COMPONENTS = [
   HeaderComponent,
   NotificationComponent,
   EmailComponent,
+  HelpComponent,
 ];
 
 @NgModule({

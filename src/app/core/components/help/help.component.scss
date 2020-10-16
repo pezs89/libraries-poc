@@ -1,0 +1,16 @@
+.help {
+  padding: 15px 5px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  &__title {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px 0;
+  }
+  &__desc {
+    font-size: 12px;
+    padding: 3px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
